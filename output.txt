@@ -1,0 +1,342 @@
+(1727, 7)
+       Price Maintenance Cost  ... safety Decision
+count   1727             1727  ...   1727     1727
+unique     4                4  ...      3        4
+top      med              med  ...    med    unacc
+freq     432              432  ...    576     1209
+[4 rows x 7 columns]
+(2000, 21)
+       battery_power       blue  ...         wifi  price_range
+count    2000.000000  2000.0000  ...  2000.000000  2000.000000
+mean     1238.518500     0.4950  ...     0.507000     1.500000
+std       439.418206     0.5001  ...     0.500076     1.118314
+min       501.000000     0.0000  ...     0.000000     0.000000
+25%       851.750000     0.0000  ...     0.000000     0.750000
+50%      1226.000000     0.0000  ...     1.000000     1.500000
+75%      1615.250000     1.0000  ...     1.000000     2.250000
+max      1998.000000     1.0000  ...     1.000000     3.000000
+[8 rows x 21 columns]
+   battery_power  blue  clock_speed  ...  touch_screen  wifi  price_range
+0            842     0          2.2  ...             0     1            1
+1           1021     1          0.5  ...             1     0            2
+2            563     1          0.5  ...             1     0            2
+3            615     1          2.5  ...             0     0            2
+4           1821     1          1.2  ...             1     0            1
+[5 rows x 21 columns]
+correlation_cars
+Decision                1.000000
+safety                  0.439171
+Size of Luggage Boot    0.157617
+Maintenance Cost       -0.232128
+Price                  -0.282488
+Name: Decision, dtype: float64
+correlation_mobiles
+price_range      1.000000
+ram              0.917046
+battery_power    0.200723
+px_width         0.165818
+px_height        0.148858
+int_memory       0.044435
+sc_w             0.038711
+pc               0.033599
+three_g          0.023611
+sc_h             0.022986
+fc               0.021998
+talk_time        0.021859
+blue             0.020573
+wifi             0.018785
+dual_sim         0.017444
+four_g           0.014772
+n_cores          0.004399
+m_dep            0.000853
+clock_speed     -0.006606
+mobile_wt       -0.030302
+touch_screen    -0.030411
+Name: price_range, dtype: float64
+Shape of mobiles_x_train:  (1500, 20)
+Shape of mobiles_y_train:  (1500,)
+Decision Tree (Cars)
+training_time
+0:00:01.350122
+Decision Tree (Cars)
+best_params
+{'ccp_alpha': 0.002, 'criterion': 'entropy', 'max_depth': 10, 'max_leaf_nodes': 30, 'min_samples_leaf': 4, 'random_state': 0}
+best_score
+0.953691115086464
+best_estimator
+DecisionTreeClassifier(ccp_alpha=0.002, class_weight=None, criterion='entropy',
+                       max_depth=10, max_features=None, max_leaf_nodes=30,
+                       min_impurity_decrease=0.0, min_impurity_split=None,
+                       min_samples_leaf=4, min_samples_split=2,
+                       min_weight_fraction_leaf=0.0, presort='deprecated',
+                       random_state=0, splitter='best')
+test_time
+0:00:00.000749
+Decision Tree (Cars)
+Training Accuracy:  0.9613899613899614
+Testing Accuracy:  0.9560185185185185
+Decision Tree (Cars)
+Confusion Matrix
+[[294   4   0   0]
+ [  4  88   4   0]
+ [  0   6  12   0]
+ [  0   1   0  19]]
+KNN (Cars)
+training_time
+0:00:00.242399
+KNN (Cars)
+best_params
+{'algorithm': 'ball_tree', 'leaf_size': 160, 'n_jobs': -1, 'n_neighbors': 7, 'p': 1, 'weights': 'distance'}
+best_score
+0.9521109123434706
+best_estimator
+KNeighborsClassifier(algorithm='ball_tree', leaf_size=160, metric='minkowski',
+                     metric_params=None, n_jobs=-1, n_neighbors=7, p=1,
+                     weights='distance')
+test_time
+0:00:00.106302
+KNN (Cars)
+Training Accuracy:  1.0
+Testing Accuracy:  0.9606481481481481
+KNN (Cars)
+Confusion Matrix
+[[298   0   0   0]
+ [  7  89   0   0]
+ [  0   3  12   3]
+ [  0   4   0  16]]
+ADA-Boost Decision Tree (Cars)
+training_time
+0:00:01.474917
+ADA-Boost Decision Tree (Cars)
+best_params
+{'algorithm': 'SAMME', 'base_estimator': DecisionTreeClassifier(ccp_alpha=0.005, class_weight=None, criterion='entropy',
+                       max_depth=6, max_features=None, max_leaf_nodes=40,
+                       min_impurity_decrease=0.0, min_impurity_split=None,
+                       min_samples_leaf=1, min_samples_split=2,
+                       min_weight_fraction_leaf=0.0, presort='deprecated',
+                       random_state=0, splitter='best'), 'learning_rate': 0.5, 'n_estimators': 130, 'random_state': 0}
+best_score
+0.9915146094215862
+best_estimator
+AdaBoostClassifier(algorithm='SAMME',
+                   base_estimator=DecisionTreeClassifier(ccp_alpha=0.005,
+                                                         class_weight=None,
+                                                         criterion='entropy',
+                                                         max_depth=6,
+                                                         max_features=None,
+                                                         max_leaf_nodes=40,
+                                                         min_impurity_decrease=0.0,
+                                                         min_impurity_split=None,
+                                                         min_samples_leaf=1,
+                                                         min_samples_split=2,
+                                                         min_weight_fraction_leaf=0.0,
+                                                         presort='deprecated',
+                                                         random_state=0,
+                                                         splitter='best'),
+                   learning_rate=0.5, n_estimators=130, random_state=0)
+test_time
+0:00:00.025691
+ADA-Boost Decision Tree (Cars)
+Training Accuracy:  1.0
+Testing Accuracy:  0.9768518518518519
+ADA-Boost Decision Tree (Cars)
+Confusion Matrix
+[[298   0   0   0]
+ [  4  90   2   0]
+ [  0   0  15   3]
+ [  0   1   0  19]]
+SVM (Cars)
+training_time
+0:00:00.439275
+SVM (Cars)
+best_params
+{'C': 60, 'decision_function_shape': 'ovr', 'kernel': 'rbf', 'max_iter': -1, 'random_state': 0, 'tol': 0.1}
+best_score
+0.9899701848539058
+best_estimator
+SVC(C=60, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='scale', kernel='rbf',
+    max_iter=-1, probability=False, random_state=0, shrinking=True, tol=0.1,
+    verbose=False)
+test_time
+0:00:00.002995
+SVM (Cars)
+Training Accuracy:  1.0
+Testing Accuracy:  0.9907407407407407
+SVM (Cars)
+Confusion Matrix
+[[298   0   0   0]
+ [  3  93   0   0]
+ [  0   1  17   0]
+ [  0   0   0  20]]
+Neural Network (Cars)
+training_time
+0:00:04.293048
+Neural Network (Cars)
+best_params
+{'activation': 'relu', 'hidden_layer_sizes': 320, 'learning_rate_init': 0.1, 'max_iter': 400, 'random_state': 0, 'tol': 0.0001}
+best_score
+0.9690995825879547
+best_estimator
+MLPClassifier(activation='relu', alpha=0.0001, batch_size='auto', beta_1=0.9,
+              beta_2=0.999, early_stopping=False, epsilon=1e-08,
+              hidden_layer_sizes=320, learning_rate='constant',
+              learning_rate_init=0.1, max_fun=15000, max_iter=400, momentum=0.9,
+              n_iter_no_change=10, nesterovs_momentum=True, power_t=0.5,
+              random_state=0, shuffle=True, solver='adam', tol=0.0001,
+              validation_fraction=0.1, verbose=False, warm_start=False)
+test_time
+0:00:00.001656
+Neural Network (Cars)
+Training Accuracy:  0.9822393822393822
+Testing Accuracy:  0.9675925925925926
+Neural Network (Cars)
+Confusion Matrix
+[[298   0   0   0]
+ [  2  85   8   1]
+ [  0   0  15   3]
+ [  0   0   0  20]]
+Decision Tree (Mobiles)
+training_time
+0:00:00.168499
+Decision Tree (Mobiles)
+best_params
+{'ccp_alpha': 0.005, 'criterion': 'entropy', 'max_depth': 8, 'max_leaf_nodes': 64, 'min_samples_leaf': 8, 'random_state': 0}
+best_score
+0.8606666666666667
+best_estimator
+DecisionTreeClassifier(ccp_alpha=0.005, class_weight=None, criterion='entropy',
+                       max_depth=8, max_features=None, max_leaf_nodes=64,
+                       min_impurity_decrease=0.0, min_impurity_split=None,
+                       min_samples_leaf=8, min_samples_split=2,
+                       min_weight_fraction_leaf=0.0, presort='deprecated',
+                       random_state=0, splitter='best')
+test_time
+0:00:00.000904
+Decision Tree (Mobiles)
+Training Accuracy:  0.9186666666666666
+Testing Accuracy:  0.844
+Decision Tree (Mobiles)
+Confusion Matrix
+[[111  13   0   0]
+ [ 12  89   9   0]
+ [  0  16  94  15]
+ [  0   0  13 128]]
+KNN (Mobiles)
+training_time
+0:00:00.249758
+KNN (Mobiles)
+best_params
+{'algorithm': 'ball_tree', 'leaf_size': 30, 'n_jobs': -1, 'n_neighbors': 26, 'p': 1, 'weights': 'distance'}
+best_score
+0.9273333333333333
+best_estimator
+KNeighborsClassifier(algorithm='ball_tree', leaf_size=30, metric='minkowski',
+                     metric_params=None, n_jobs=-1, n_neighbors=26, p=1,
+                     weights='distance')
+test_time
+0:00:00.105660
+KNN (Mobiles)
+Training Accuracy:  1.0
+Testing Accuracy:  0.948
+KNN (Mobiles)
+Confusion Matrix
+[[123   1   0   0]
+ [  5 102   3   0]
+ [  0   5 114   6]
+ [  0   0   6 135]]
+ADA-Boost Decision Tree (Mobiles)
+training_time
+0:00:06.806117
+ADA-Boost Decision Tree (Mobiles)
+best_params
+{'algorithm': 'SAMME', 'base_estimator': DecisionTreeClassifier(ccp_alpha=0.01, class_weight=None, criterion='entropy',
+                       max_depth=7, max_features=None, max_leaf_nodes=50,
+                       min_impurity_decrease=0.0, min_impurity_split=None,
+                       min_samples_leaf=1, min_samples_split=2,
+                       min_weight_fraction_leaf=0.0, presort='deprecated',
+                       random_state=0, splitter='best'), 'learning_rate': 1, 'n_estimators': 130, 'random_state': 0}
+best_score
+0.9259999999999999
+best_estimator
+AdaBoostClassifier(algorithm='SAMME',
+                   base_estimator=DecisionTreeClassifier(ccp_alpha=0.01,
+                                                         class_weight=None,
+                                                         criterion='entropy',
+                                                         max_depth=7,
+                                                         max_features=None,
+                                                         max_leaf_nodes=50,
+                                                         min_impurity_decrease=0.0,
+                                                         min_impurity_split=None,
+                                                         min_samples_leaf=1,
+                                                         min_samples_split=2,
+                                                         min_weight_fraction_leaf=0.0,
+                                                         presort='deprecated',
+                                                         random_state=0,
+                                                         splitter='best'),
+                   learning_rate=1, n_estimators=130, random_state=0)
+test_time
+0:00:00.017745
+ADA-Boost Decision Tree (Mobiles)
+Training Accuracy:  1.0
+Testing Accuracy:  0.932
+ADA-Boost Decision Tree (Mobiles)
+Confusion Matrix
+[[120   4   0   0]
+ [  5  97   8   0]
+ [  0   4 114   7]
+ [  0   0   6 135]]
+SVM (Mobiles)
+training_time
+0:00:00.160122
+SVM (Mobiles)
+best_params
+{'C': 1, 'decision_function_shape': 'ovr', 'kernel': 'linear', 'max_iter': -1, 'random_state': 0, 'tol': 0.1}
+best_score
+0.9359999999999999
+best_estimator
+SVC(C=1, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='scale', kernel='linear',
+    max_iter=-1, probability=False, random_state=0, shrinking=True, tol=0.1,
+    verbose=False)
+test_time
+0:00:00.008247
+SVM (Mobiles)
+Training Accuracy:  0.9593333333333334
+Testing Accuracy:  0.944
+SVM (Mobiles)
+Confusion Matrix
+[[121   3   0   0]
+ [  4 101   5   0]
+ [  0   5 115   5]
+ [  0   0   6 135]]
+Neural Network (Mobiles)
+training_time
+0:00:02.695269
+Neural Network (Mobiles)
+best_params
+{'activation': 'logistic', 'hidden_layer_sizes': 40, 'learning_rate_init': 0.01, 'max_iter': 200, 'random_state': 0, 'tol': 0.001}
+best_score
+0.9666666666666666
+best_estimator
+MLPClassifier(activation='logistic', alpha=0.0001, batch_size='auto',
+              beta_1=0.9, beta_2=0.999, early_stopping=False, epsilon=1e-08,
+              hidden_layer_sizes=40, learning_rate='constant',
+              learning_rate_init=0.01, max_fun=15000, max_iter=200,
+              momentum=0.9, n_iter_no_change=10, nesterovs_momentum=True,
+              power_t=0.5, random_state=0, shuffle=True, solver='adam',
+              tol=0.001, validation_fraction=0.1, verbose=False,
+              warm_start=False)
+test_time
+0:00:00.001361
+Neural Network (Mobiles)
+Training Accuracy:  0.9893333333333333
+Testing Accuracy:  0.966
+Neural Network (Mobiles)
+Confusion Matrix
+[[124   0   0   0]
+ [  3 103   4   0]
+ [  0   3 118   4]
+ [  0   0   3 138]]
+done
+
